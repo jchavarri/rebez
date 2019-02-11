@@ -8,7 +8,7 @@ BezierEasing provides Cubic Bezier Curve easing which generalizes easing functio
 
 Implementing efficient lookup is not easy because it implies projecting the X coordinate to a Bezier Curve. This micro library uses fast heuristics (involving dichotomic search, newton-raphson, sampling) to focus on performance and precision.
 
-    It is heavily based on implementations available in Firefox and Chrome (for the CSS transition-timing-function property).
+> It is heavily based on implementations available in Firefox and Chrome (for the CSS transition-timing-function property).
 
 
 ## Install
@@ -41,7 +41,7 @@ In OCaml:
 ```ocaml
 let easing = Rebez.make 0. 0.99 0. 0.99
 (* `easing` is a function that can receive values from 0.0 to 1.0 *)
-llet value = easing 0.01  (* 0.512011914581 *)
+let value = easing 0.01  (* 0.512011914581 *)
 ```
 
 ## Developing:
