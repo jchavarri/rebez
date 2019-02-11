@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/javierchavarri/javier_chavarri/_apis/build/status/jchavarri.rebez?branchName=master)](https://dev.azure.com/javierchavarri/javier_chavarri/_build/latest?definitionId=1&branchName=master)
+
 # rebez
 
 Cubic bezier implementation in Reason / OCaml.
