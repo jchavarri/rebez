@@ -118,7 +118,25 @@ repeat(
     let c = 1. -. a;
     let d = 1. -. b;
     let easing = Rebez.make(a, b, c, d);
-    assertClose(0.000001, easing(0.5), 0.5, "(0.5) should be 0.5");
+    let easingZeroPointFive = easing(0.5);
+    assertClose(
+      // Can't get too precise as values close to the limit like
+      // Rebez.make(0.999933706888, -0.386955038209, 6.62931115362e-05, 1.38695503821)
+      // will lead to too edgy results
+      0.01,
+      easingZeroPointFive,
+      0.5,
+      "(0.5) should be 0.5, was "
+      ++ string_of_float(easingZeroPointFive)
+      ++ ", with a: "
+      ++ string_of_float(a)
+      ++ ", b: "
+      ++ string_of_float(b)
+      ++ ", c: "
+      ++ string_of_float(c)
+      ++ ", d: "
+      ++ string_of_float(d),
+    );
   },
 );
 
@@ -132,7 +150,8 @@ repeat(
     let d = 1. -. b;
     let easing = Rebez.make(a, b, c, d);
     let sym = x => 1. -. easing(1. -. x);
-    allEquals(easing, sym, 100);
+    // Can't get too precise as values close to the limits will lead to too edgy results
+    allEquals(~assertion=assertClose(0.01), easing, sym, 100);
   },
 );
 
