@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Cubic bezier implementation in Reason / OCaml",
   "esy": {
-    "build": "pesy",
+    "build": "dune build -p #{self.name}",
+    "buildDev": "pesy",
     "release": {
       "releasedBinaries": [
         "RebezApp.exe"
@@ -34,11 +35,11 @@
   "dependencies": {
     "@opam/dune": ">=1.6.0",
     "@esy-ocaml/reason": "*",
-    "refmterr": "*",
-    "ocaml": "^4.4.0",
-    "pesy": "*"
+    "ocaml": "^4.4.0"
   },
   "devDependencies": {
+    "refmterr": "*",
+    "pesy": "*",
     "@opam/merlin": "*"
   }
 }
